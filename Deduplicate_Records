@@ -1,0 +1,8 @@
+# Step 1: Identify and remove duplicate records
+deduplicated_data = data.drop_duplicates(subset=["tire_id"], keep="last")
+
+# Save the deduplicated dataset
+deduplicated_data.to_csv("tire_data_deduplicated.csv", index=False)
+
+# Importance:
+# - Ensures that each tire has a unique record, eliminating redundancy and potential inaccuracies in analysis.

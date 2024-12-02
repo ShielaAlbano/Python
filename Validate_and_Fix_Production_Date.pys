@@ -1,0 +1,11 @@
+# Step 1: Convert production_date to datetime format
+data["production_date"] = pd.to_datetime(data["production_date"], errors="coerce")
+
+# Step 2: Remove invalid production dates
+data = data[(data["production_date"] >= "1990-01-01") & (data["production_date"] <= pd.Timestamp.now())]
+
+# Save the validated data
+data.to_csv("tire_data_validated_dates.csv", index=False)
+
+# Importance:
+# - Ensures all production dates are valid, preventing errors in time-based analyses.
